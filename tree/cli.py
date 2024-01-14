@@ -9,6 +9,9 @@ from .tree import DirectoryTree
 
 
 def main():
+    """Gathers all CLI arguments, checks if a given path is a directory,
+    imports Directory Tree class to be able to generate a directory tree
+    """
     args = parse_cmd_line_arguments()
     root_dir = pathlib.Path(args.root_dir)
     if not root_dir.is_dir():
@@ -19,6 +22,14 @@ def main():
 
 
 def parse_cmd_line_arguments():
+    """Establishes CLI arguments in order to generate directory tree
+    using command line
+
+    Returns
+    -------
+    argparse.Namespace
+        Arguments available within the CLI application
+    """
     parser = argparse.ArgumentParser(
         prog="tree",
         description="Tree, a directory tree generator",
